@@ -1,8 +1,8 @@
-export default {
-  template: null,
-  controllerAs: 'master',
+import template from './master.html';
 
+export default {
+  template,
   controller: function() {
-  
+    this.shit = 'shit';
   }
 };

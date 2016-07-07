@@ -13,12 +13,7 @@ app.use( ( req, res, next ) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.send('hello, /pokemon will get you the list');
-});
-
 app.get('/api/pokemon', (req, res) => {
-  console.log('req started');
   Pokemon
     .find()
     .then(list => {
@@ -39,6 +34,5 @@ app.post('/api/pokemon', jsonParser, (req, res) => {
       res.json({error: err});
     });
 });
-
 
 module.exports = app;
