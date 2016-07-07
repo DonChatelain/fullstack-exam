@@ -1,0 +1,10 @@
+<div id="add-pokemon">
+  <h3>Add New Pokemon</h3>
+  <form ng-submit="$ctrl.submit()">
+    <input ng-model="$ctrl.post.name"
+          placeholder="Pokemon Name" />
+    <input ng-model="$ctrl.post.type"
+          placeholder="Pokemon Type" />
+    <input type="submit" value="Submit" />
+  </form>
+</div>

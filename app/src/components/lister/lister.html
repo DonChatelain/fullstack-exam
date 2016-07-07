@@ -1,3 +1,8 @@
 <div id="lister">
-  {{lister.pokemonList}}
+  <h3>Name - Type</h3>
+  <ul>
+    <li ng-repeat="pokemon in $ctrl.list">
+      {{pokemon.name}} - {{pokemon.type}}
+    </li>
+  </ul>
 </div>
