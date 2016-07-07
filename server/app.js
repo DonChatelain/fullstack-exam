@@ -1,9 +1,10 @@
 const express = require( 'express' );
 const app = express();
+const jsonParser =  require('body-parser').json();
+const Pokemon = require('./models/pokemon');
 
 app.use( express.static( __dirname + '/public' ) );
 
-// To allow CORS
 app.use( ( req, res, next ) => {
   const url = '*';
   res.header( 'Access-Control-Allow-Origin', url );
@@ -12,6 +13,32 @@ app.use( ( req, res, next ) => {
   next();
 });
 
+app.get('/', (req, res) => {
+  res.send('hello, /pokemon will get you the list');
+});
+
+app.get('/api/pokemon', (req, res) => {
+  console.log('req started');
+  Pokemon
+    .find()
+    .then(list => {
+      res.json({content: list});
+    })
+    .catch(err => {
+      res.json({error: err});
+    });
+});
+
+app.post('/api/pokemon', jsonParser, (req, res) => {
+  new Pokemon(req.body)
+    .save()
+    .then(newPokemon => {
+      res.json({content: newPokemon});
+    })
+    .catch(err => {
+      res.json({error: err});
+    });
+});
 
 
 module.exports = app;
