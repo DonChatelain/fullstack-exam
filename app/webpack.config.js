@@ -39,8 +39,5 @@ module.exports = {
         loader: 'html'
       }
     ]
-  },
-  sassLoader: {
-    includePaths: ['./src/scss/includes']
-  } 
+  }
 };

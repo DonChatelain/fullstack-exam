@@ -5,10 +5,5 @@ export default {
   bindings: {
     list: '='
   },
-  controller
+  controller: () => {}
 };
-
-function controller() {
-
-
-}
